@@ -1,7 +1,7 @@
 ;;;;
 ;;; Lisp in Small Pieces, Chapter 1.
 ;;;
-;;; A very naive direct-execution Lisp interpreter.
+;;; A very naive direct-execution Lisp1 interpreter.
 ;;;;
 
 (define *env.init*   (list))
@@ -103,7 +103,7 @@
           (display value)
           (newline)
           (repl)))))
-  (display "Entering interactive repl.")
+  (display "Entering interactive ch01 repl.")
   (newline)
   (display "To exit, type (quit) or hit ctrl-d.")
   (newline)
