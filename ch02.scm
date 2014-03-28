@@ -23,6 +23,16 @@
       ((set!) (update! (cadr sexp)
                        env
                        (evaluate (caddr sexp) env fenv)))
+      ((flet) (eprogn (cddr sexp)
+                      env
+                      (extend fenv
+                              (map car (cadr sexp))
+                              (map (lambda (defn)
+                                     (make-function (cadr defn)
+                                                    (cddr defn)
+                                                    env
+                                                    fenv))
+                                   (cadr sexp)))))
       ((function) (cond
                     ((symbol? (cadr sexp)) (lookup (cadr sexp) fenv))
                     (else (error "Bad function" (cadr sexp)))))
