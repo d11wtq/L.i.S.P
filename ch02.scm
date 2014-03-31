@@ -46,8 +46,8 @@
   (lookup-with-error-function
     id
     env
-    (lambda (args denv)
-      (error "No such binding" (car args)))))
+    (lambda (id)
+      (error "No such binding" id))))
 
 (define (update! id env value)
   "Change the value stored in the binding id in the a-list env."
@@ -177,6 +177,8 @@
 (definitial t #t)
 (definitial f #f)
 (definitial nil (list))
+(definitial list (lambda (values denv)
+                   (apply list values)))
 
 (defprimitive cons cons 2)
 (defprimitive car car 1)

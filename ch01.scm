@@ -4,7 +4,7 @@
 ;;; A very naive direct-execution Lisp1 interpreter.
 ;;;;
 
-(define *env.init*   (list))
+(define *env.init* (list))
 (define *env.global* *env.init*)
 
 (define (evaluate sexp env)
